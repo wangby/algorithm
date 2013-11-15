@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/config
+END
+TrainingConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/config/TrainingConfig.java
+END
+ComponentConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/config/ComponentConfig.java
+END
+RankingTrainingConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/config/RankingTrainingConfig.java
+END

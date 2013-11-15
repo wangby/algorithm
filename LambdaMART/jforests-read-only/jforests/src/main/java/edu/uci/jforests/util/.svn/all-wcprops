@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util
+END
+ArraysUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/ArraysUtil.java
+END
+Timer.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/Timer.java
+END
+ScoreBasedComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/ScoreBasedComparator.java
+END
+ConfigHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/ConfigHolder.java
+END
+MathUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/MathUtil.java
+END
+IOUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/IOUtils.java
+END
+FloatingPointUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/FloatingPointUtil.java
+END
+Pair.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/Pair.java
+END
+Constants.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/Constants.java
+END
+Util.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/Util.java
+END

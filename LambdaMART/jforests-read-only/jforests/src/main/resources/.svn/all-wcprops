@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/5/trunk/jforests/src/main/resources
+END
+sample-ranking-data.zip
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/5/trunk/jforests/src/main/resources/sample-ranking-data.zip
+END
+sample-ranking-config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/3/trunk/jforests/src/main/resources/sample-ranking-config.properties
+END
+sample-classification-config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/resources/sample-classification-config.properties
+END

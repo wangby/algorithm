@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning
+END
+LearningUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/LearningUtils.java
+END
+LearningModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/LearningModule.java
+END
+LearningProgressListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/LearningProgressListener.java
+END

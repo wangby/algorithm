@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset
+END
+RankingDataset.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/RankingDataset.java
+END
+BitNumericArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/BitNumericArray.java
+END
+NumericArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/NumericArray.java
+END
+ShortNumericArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/ShortNumericArray.java
+END
+ByteNumericArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/ByteNumericArray.java
+END
+Dataset.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/Dataset.java
+END
+RankingDatasetLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/RankingDatasetLoader.java
+END
+NumericArrayFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/NumericArrayFactory.java
+END
+ByteSerializable.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/ByteSerializable.java
+END
+Feature.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/Feature.java
+END
+NullNumericArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/NullNumericArray.java
+END
+DatasetLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/DatasetLoader.java
+END
+Histogram.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/dataset/Histogram.java
+END

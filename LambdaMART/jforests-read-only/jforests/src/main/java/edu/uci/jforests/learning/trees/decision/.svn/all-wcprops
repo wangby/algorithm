@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision
+END
+Entropy.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/Entropy.java
+END
+DecisionPredictions.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/DecisionPredictions.java
+END
+RandomForest.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/RandomForest.java
+END
+DecisionTreeLearner.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/DecisionTreeLearner.java
+END
+DecisionCandidateSplitsForLeaf.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/DecisionCandidateSplitsForLeaf.java
+END
+DecisionTreeSplit.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/DecisionTreeSplit.java
+END
+DecisionHistogram.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/DecisionHistogram.java
+END
+DecisionTree.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/decision/DecisionTree.java
+END

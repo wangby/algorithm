@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/sparse
+END
+MetaData.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/sparse/MetaData.java
+END
+SparseTextFileReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/sparse/SparseTextFileReader.java
+END
+SparseTextFileLine.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/sparse/SparseTextFileLine.java
+END
+MetaLineParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/sparse/MetaLineParser.java
+END
+FeatureMetaData.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/sparse/FeatureMetaData.java
+END

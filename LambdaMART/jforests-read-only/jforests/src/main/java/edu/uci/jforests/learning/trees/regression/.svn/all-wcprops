@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression
+END
+RegressionTree.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression/RegressionTree.java
+END
+RegressionPredictions.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression/RegressionPredictions.java
+END
+RegressionTreeLearner.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression/RegressionTreeLearner.java
+END
+RegressionTreesConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression/RegressionTreesConfig.java
+END
+RegressionCandidateSplitsForLeaf.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression/RegressionCandidateSplitsForLeaf.java
+END
+RegressionTreeSplit.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression/RegressionTreeSplit.java
+END
+RegressionHistogram.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/regression/RegressionHistogram.java
+END

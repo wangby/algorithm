@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/4/trunk/jforests/src/main/java/edu/uci/jforests/applications
+END
+Runner.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/jforests/src/main/java/edu/uci/jforests/applications/Runner.java
+END
+RankingApp.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/applications/RankingApp.java
+END
+ClassificationApp.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/applications/ClassificationApp.java
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/ranking
+END
+GAPEval.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/ranking/GAPEval.java
+END
+RankGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/ranking/RankGenerator.java
+END
+PrecisionEval.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/ranking/PrecisionEval.java
+END
+NDCGEval.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/ranking/NDCGEval.java
+END
+MAPEval.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/ranking/MAPEval.java
+END

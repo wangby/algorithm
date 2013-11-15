@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/boosting
+END
+GradientBoosting.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/boosting/GradientBoosting.java
+END
+LambdaMART.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/boosting/LambdaMART.java
+END
+GradientBoostingConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/boosting/GradientBoostingConfig.java
+END
+LambdaMARTConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/boosting/LambdaMARTConfig.java
+END

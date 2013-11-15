@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval
+END
+BalancedYoundenIndex.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/BalancedYoundenIndex.java
+END
+RMSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/RMSE.java
+END
+AUC.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/AUC.java
+END
+Accuracy.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/Accuracy.java
+END
+EvaluationMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/eval/EvaluationMetric.java
+END

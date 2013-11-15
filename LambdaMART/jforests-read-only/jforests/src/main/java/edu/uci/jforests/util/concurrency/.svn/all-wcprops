@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/concurrency
+END
+TaskItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/concurrency/TaskItem.java
+END
+BlockingThreadPoolExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/concurrency/BlockingThreadPoolExecutor.java
+END
+TaskCollection.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/util/concurrency/TaskCollection.java
+END

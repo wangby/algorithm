@@ -1,0 +1,1 @@
+java -jar jforests.jar --cmd=train --ranking --config-file ranking.properties --train-file train.bin --validation-file valid.bin --output-model ensemble.txt

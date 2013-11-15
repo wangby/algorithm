@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input
+END
+RankingBinFileWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/RankingBinFileWriter.java
+END
+RankingRaw2BinConvertor.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/RankingRaw2BinConvertor.java
+END
+OriginalFeatureValues.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/OriginalFeatureValues.java
+END
+BinaryFileWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/BinaryFileWriter.java
+END
+FeatureAnalyzer.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/FeatureAnalyzer.java
+END
+FeatureValuePair.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/FeatureValuePair.java
+END
+RankingBinFileReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/RankingBinFileReader.java
+END
+Raw2BinConvertor.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/Raw2BinConvertor.java
+END
+FeatureStatistics.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/FeatureStatistics.java
+END
+BinaryFileReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/BinaryFileReader.java
+END
+RankingBinFileGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/RankingBinFileGenerator.java
+END
+BinaryFileGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/BinaryFileGenerator.java
+END
+DiscreteSparseTextFileGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/input/DiscreteSparseTextFileGenerator.java
+END

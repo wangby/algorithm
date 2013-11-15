@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees
+END
+LeafInstances.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/LeafInstances.java
+END
+Tree.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/Tree.java
+END
+TreeLeafInstances.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/TreeLeafInstances.java
+END
+TreeLearner.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/TreeLearner.java
+END
+TreesConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/TreesConfig.java
+END
+CandidateSplitsForLeaf.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/CandidateSplitsForLeaf.java
+END
+Ensemble.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/Ensemble.java
+END
+TreeSplit.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/learning/trees/TreeSplit.java
+END

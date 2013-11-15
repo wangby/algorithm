@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/tools
+END
+Sparse2ArffConvertor.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/tools/Sparse2ArffConvertor.java
+END
+Sparse2SvmConvertor.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/tools/Sparse2SvmConvertor.java
+END
+FoldGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/tools/FoldGenerator.java
+END
+Csv2SparseConvertor.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/tools/Csv2SparseConvertor.java
+END
+Categorical2NumericalCsvConvertor.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/3/trunk/jforests/src/main/java/edu/uci/jforests/tools/Categorical2NumericalCsvConvertor.java
+END
