@@ -1,0 +1,6 @@
+max_epochs=200
+max_tree_leafes=20
+feature_subspace_size=40
+use_opt_splitpoint=true
+learn_rate=0.01
+data_sample_ratio=0.4

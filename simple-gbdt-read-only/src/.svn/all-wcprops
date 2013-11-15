@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 25
+/svn/!svn/ver/2/trunk/src
+END
+gbdt.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/2/trunk/src/gbdt.cpp
+END
+ml_data.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/2/trunk/src/ml_data.cpp
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/2/trunk/src/main.cpp
+END
+tree.h
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/2/trunk/src/tree.h
+END
+gbdt.h
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/2/trunk/src/gbdt.h
+END
+ml_data.h
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/2/trunk/src/ml_data.h
+END
+types.h
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/2/trunk/src/types.h
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/2/trunk/src/makefile
+END

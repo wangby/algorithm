@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 25
+/svn/!svn/ver/2/trunk/bin
+END
+gbrt.conf
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/2/trunk/bin/gbrt.conf
+END
+libtbb.so.2
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/2/trunk/bin/libtbb.so.2
+END
+gbrt
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/2/trunk/bin/gbrt
+END
