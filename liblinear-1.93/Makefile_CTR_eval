@@ -1,0 +1,40 @@
+CXX ?= g++
+CC ?= gcc
+CFLAGS = -Wall -Wconversion -O3 -fPIC -g
+LIBS = blas/blas.a
+SHVER = 1
+OS = $(shell uname)
+#LIBS = -lblas
+
+all: train_ctr_eval predict_ctr_eval
+
+lib: linear.o tron.o blas/blas.a
+	if [ "$(OS)" = "Darwin" ]; then \
+		SHARED_LIB_FLAG="-dynamiclib -Wl,-install_name,liblinear.so.$(SHVER)"; \
+	else \
+		SHARED_LIB_FLAG="-shared -Wl,-soname,liblinear.so.$(SHVER)"; \
+	fi; \
+	$(CXX) $${SHARED_LIB_FLAG} linear.o tron.o blas/blas.a -o liblinear.so.$(SHVER)
+
+train_ctr_eval: tron.o linear.o train_ctr_eval.c blas/blas.a eval.o 
+	$(CXX) $(CFLAGS) -o train_ctr_eval train_ctr_eval.c tron.o eval.o linear.o $(LIBS)
+
+predict_ctr_eval: tron.o linear.o predict_ctr_eval.c blas/blas.a eval.o 
+	$(CXX) $(CFLAGS) -o predict_ctr_eval predict_ctr_eval.c tron.o eval.o linear.o $(LIBS)
+	
+eval.o: eval.h eval.cpp
+	$(CXX) $(CFLAGS) -c -o eval.o eval.cpp
+	
+tron.o: tron.cpp tron.h
+	$(CXX) $(CFLAGS) -c -o tron.o tron.cpp
+
+linear.o: linear.cpp linear.h
+	$(CXX) $(CFLAGS) -c -o linear.o linear.cpp
+
+blas/blas.a: blas/*.c blas/*.h
+	make -C blas OPTFLAGS='$(CFLAGS)' CC='$(CC)';
+
+clean:
+	make -C blas clean
+	make -C matlab clean
+	rm -f *~ tron.o linear.o train_ctr_eval predict_ctr_eval liblinear.so.$(SHVER)
