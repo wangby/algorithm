@@ -183,6 +183,20 @@ class Comp{
 	}
 };
 
+class Comp2{
+	const double *dec_val;
+	const int *ty;
+	public:
+	Comp(const double *pdec_val,const int *pty): dec_val(pdec_val),ty(pty){}
+	bool operator()(int i, int j) const{
+		if (dec_val[i] > dec_val[j]) {
+			return true;
+		} else if (dec_val[i] == dev_val[j]) {
+			return ty[i] > ty[j];
+		}
+		return false;
+	}
+};
 
 double auc(const dvec_t& dec_values, const ivec_t& ty){
 	double roc  = 0;
@@ -192,7 +206,7 @@ double auc(const dvec_t& dec_values, const ivec_t& ty){
 
 	for(i = 0; i < size; ++i) indices[i] = i;
 
-	std::sort(indices.begin(), indices.end(), Comp(&dec_values[0]));
+	std::sort(indices.begin(), indices.end(), Comp2(&dec_values[0],&ty[0]));
 
 	int tp = 0,fp = 0;
 	for(i = 0; i < size; i++) {
