@@ -209,11 +209,13 @@ double auc(const dvec_t& dec_values, const ivec_t& ty){
 	std::sort(indices.begin(), indices.end(), Comp2(&dec_values[0],&ty[0]));
 
 	int tp = 0,fp = 0;
+	int old_tp = 0;
 	for(i = 0; i < size; i++) {
-		if(ty[indices[i]] == 1) { 
-            tp++;
+	    if(ty[indices[i]] == 1) { 
+        	tp++;
 		} else if(ty[indices[i]] == -1) {
-			roc += tp;
+			roc += old_tp + tp;
+			old_tp = tp;
 			fp++;
 		}
 	}
@@ -225,7 +227,7 @@ double auc(const dvec_t& dec_values, const ivec_t& ty){
 		roc = 0;
 	}
 	else
-		roc = roc / tp / fp;
+		roc = roc / tp / fp / 2;
 
 	printf("AUC = %g\n", roc);
 
