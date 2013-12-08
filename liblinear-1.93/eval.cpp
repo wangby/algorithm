@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <errno.h>
+#include <stdlib.h>
+#include <time.h>
 #include <cstring>
 #include "linear.h"
 #include "eval.h"
@@ -409,9 +411,8 @@ double binary_class_cross_validation(const problem *prob,
 	return validation_function(dec_values, ty);
 }
 
-
-double binary_class_cross_validation_ctr(const problem *prob,const sample *samp,
-		const parameter *param, int nr_fold) {
+double binary_class_cross_validation_ctr(const problem *prob,
+		const sample *samp, const parameter *param, int nr_fold) {
 	int i;
 	int *fold_start = Malloc(int,nr_fold+1);
 	int l = samp->l;
@@ -422,6 +423,7 @@ double binary_class_cross_validation_ctr(const problem *prob,const sample *samp,
 	ivec_t num_clicks;
 	ivec_t num_impressions;
 
+	srand(time(NULL));
 	for (i = 0; i < l; i++)
 		perm[i] = i;
 	for (i = 0; i < l; i++) {
@@ -448,7 +450,7 @@ double binary_class_cross_validation_ctr(const problem *prob,const sample *samp,
 		subprob.n = prob->n;
 		subprob.bias = prob->bias;
 		subprob.l = prob->l;
-		for(j = begin;j<end;j++) {
+		for (j = begin; j < end; j++) {
 			subprob.l -= samp->s[perm[j]].shows;
 		}
 
@@ -458,7 +460,8 @@ double binary_class_cross_validation_ctr(const problem *prob,const sample *samp,
 
 		k = 0;
 		for (j = 0; j < begin; j++) {
-			for (int m = samp->s[perm[j]].start_index; m<=samp->s[perm[j]].end_index;m++) {
+			for (int m = samp->s[perm[j]].start_index;
+					m <= samp->s[perm[j]].end_index; m++) {
 				subprob.x[k] = prob->x[m];
 				subprob.y[k] = prob->y[m];
 				++k;
@@ -466,7 +469,8 @@ double binary_class_cross_validation_ctr(const problem *prob,const sample *samp,
 		}
 
 		for (j = end; j < l; j++) {
-			for (int m = samp->s[perm[j]].start_index; m<=samp->s[perm[j]].end_index;m++) {
+			for (int m = samp->s[perm[j]].start_index;
+					m <= samp->s[perm[j]].end_index; m++) {
 				subprob.x[k] = prob->x[m];
 				subprob.y[k] = prob->y[m];
 				++k;
