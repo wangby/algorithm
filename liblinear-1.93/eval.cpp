@@ -435,9 +435,11 @@ double binary_class_cross_validation_ctr(const problem *prob,
 //		printf("%d ",perm[i]);
 //	}
 //	printf("\n");
-
-	for (i = 0; i <= nr_fold; i++)
+//	printf("l:%d\n",l);
+	for (i = 0; i <= nr_fold; i++) {
 		fold_start[i] = i * l / nr_fold;
+	}
+
 
 	for (i = 0; i < nr_fold; i++) {
 		int begin = fold_start[i];
@@ -476,10 +478,11 @@ double binary_class_cross_validation_ctr(const problem *prob,
 				++k;
 			}
 		}
+//		printf("k:%d\n",k);
 		struct model *submodel = train(&subprob, param);
 
 		int nr_class = get_nr_class(submodel);
-		double *prob_estimates = (double *) malloc(nr_class * sizeof(double));
+		double *prob_estimates = Malloc(double,nr_class);
 
 		labels = Malloc(int, nr_class);
 		get_labels(submodel, labels);
@@ -488,10 +491,6 @@ double binary_class_cross_validation_ctr(const problem *prob,
 			fprintf(stderr, "Error: the number of class is not equal to 2\n");
 			exit(-1);
 		}
-
-		predicted_ctr.resize(end);
-		num_clicks.resize(end);
-		num_impressions.resize(end);
 
 		for (j = begin; j < end; j++) {
 			int m = samp->s[perm[j]].start_index;
