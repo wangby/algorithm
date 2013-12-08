@@ -10,6 +10,7 @@ extern "C" {
 
 /* cross validation function */
 double binary_class_cross_validation(const struct problem *prob, const struct parameter *param, int nr_fold);
+double binary_class_cross_validation_ctr(const struct problem *prob,const sample *samp, const struct parameter *param, int nr_fold);
 
 /* predict function */
 void binary_class_predict(FILE *input, FILE *output); 
