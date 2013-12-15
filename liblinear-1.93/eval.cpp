@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cstring>
+#include <math.h>
 #include "linear.h"
 #include "eval.h"
 
@@ -19,14 +20,14 @@ double recall(const dvec_t& dec_values, const ivec_t& ty);
 double fscore(const dvec_t& dec_values, const ivec_t& ty);
 double bac(const dvec_t& dec_values, const ivec_t& ty);
 double auc(const dvec_t& dec_values, const ivec_t& ty);
-//double auc2(const dvec_t& dec_values, const ivec_t& ty);
+double auc2(const dvec_t& dec_values, const ivec_t& ty);
 double auc_ctr(const dvec_t& dec_values, const ivec_t& clicks,
 		const ivec_t& shows);
 double accuracy(const dvec_t& dec_values, const ivec_t& ty);
 
 // evaluation function pointer
 // You can assign this pointer to any above prototype
-double (*validation_function)(const dvec_t&, const ivec_t&) = auc;
+double (*validation_function)(const dvec_t&, const ivec_t&) = auc2;
 
 static char *line = NULL;
 static int max_line_len;
@@ -237,51 +238,62 @@ double auc(const dvec_t& dec_values, const ivec_t& ty) {
 	return roc;
 }
 
-//double auc2(const dvec_t& dec_values, const ivec_t& ty) {
-//	double roc = 0;
-//	size_t size = dec_values.size();
-//	size_t i;
-//	std::vector<size_t> indices(size);
-//
-//	for (i = 0; i < size; ++i) {
-//		indices[i] = i;
+double auc2(const dvec_t& dec_values, const ivec_t& ty) {
+	double auc = 0;
+	size_t size = dec_values.size();
+	size_t i;
+	std::vector<size_t> indices(size);
+
+	for (i = 0; i < size; ++i) {
+		indices[i] = i;
 //		printf("%f %d\n", dec_values[i],ty[i]);
-//	}
-//
-//	std::sort(indices.begin(), indices.end(), Comp2(&dec_values[0], &ty[0]));
+	}
+
+	std::sort(indices.begin(), indices.end(), Comp(&dec_values[0]));
 //	printf ("\n");
 //	for (i = 0; i < size; ++i) {
 //		printf("%d %f %d\n", indices[i], dec_values[indices[i]],ty[indices[i]]);
 //	}
-//
-//	int tp = 0, fp = 0;
-//	int old_tp = 0;
-//	bool old = false;
-//	for (i = 0; i < size; i++) {
-//		if (ty[indices[i]] == 1) {
-//			if (old) {
-//				old_tp = tp;
-//				old = false;
-//			}
-//			tp++;
-//		} else if (ty[indices[i]] == -1) {
-//			roc += old_tp + tp;
-//			old = true;
-//			fp++;
-//		}
-//	}
-//
-//	if (tp == 0 || fp == 0) {
-//		fprintf(stderr,
-//				"warning: Too few postive true labels or negative true labels\n");
-//		roc = 0;
-//	} else
-//		roc = roc / tp / fp / 2;
-//
-//	printf("AUC = %g\n", roc);
-//
-//	return roc;
-//}
+
+	int total_positive = 0;
+	int total_negative = 0;
+
+	for (i = 0; i < size; i++) {
+		if (ty[i] > 0) {
+			total_positive++;
+		} else {
+			total_negative++;
+		}
+	}
+
+	double tp = 0;
+	double fp = 0;
+	double fp_prev = 0;
+	double tp_prev = 0;
+	double f_prev = -100000;
+
+	for (i = 0; i < size; i++) {
+		double cur_f = dec_values[indices[i]];
+		if (cur_f != f_prev) {
+			auc += fabs(fp - fp_prev) * ((tp + tp_prev) / 2);
+			f_prev = cur_f;
+			fp_prev = fp;
+			tp_prev = tp;
+		}
+
+		if (ty[indices[i]] > 0) {
+			tp++;
+		} else {
+			fp++;
+		}
+	}
+	auc += fabs(total_negative - fp_prev) * ((total_positive + tp_prev) / 2.0);
+	auc /= total_positive * total_negative;
+
+	printf("AUC = %g\n", auc);
+
+	return auc;
+}
 
 double auc_ctr(const dvec_t& predicted_ctr, const ivec_t& num_clicks,
 		const ivec_t& num_impressions) {
@@ -439,7 +451,6 @@ double binary_class_cross_validation_ctr(const problem *prob,
 	for (i = 0; i <= nr_fold; i++) {
 		fold_start[i] = i * l / nr_fold;
 	}
-
 
 	for (i = 0; i < nr_fold; i++) {
 		int begin = fold_start[i];
