@@ -1,0 +1,7 @@
+Benjamin Lee <benlee@ece.ucsb.edu>
+
+C++ Port of RandomForests(from R Port)
+  Fortran original by Leo Breiman and Adele Cutler, R port by Andy Liaw and
+  Matthew Wiener.
+  Also incorporates ideas from Weka/classifiers/trees/RandomTree.java:
+  Richard Kirkby, Eibe Frank

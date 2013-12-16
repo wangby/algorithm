@@ -1,0 +1,9 @@
+librf
+---------
+
+librf/ - library source 
+examples/ - example programs - rf-train/rf-predict are similar to svm-train/svm-predict in libSVM
+data/ - some sample datasets
+tests/ - beginnings of unittests
+UnitTestPlusPlus/ - UnitTest++ (http://unittest-cpp.sourceforge.net/) -
+very lightweight unit testing suite - included so as not to have any external dependencies-

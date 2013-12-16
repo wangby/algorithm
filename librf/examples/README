@@ -1,0 +1,19 @@
+TRAINING:
+
+This is how to train a random forest from training data and save the model to disk.
+Currently, the default is a CSV format delimited by ',' with no header.
+However, a header(with variable names) and special delimeter can be
+specified (most commonly ' ') 
+
+USAGE: 
+   ./rftrain  [-p <probs>] [-k <int>] [-t <int>] -m <rfmodel> -d
+              <trainingdata> [-f <int>] [-l <labels>] [--csv] [--header]
+              [--delim <delimiter>] [--importance] [--] [--version] [-h]
+
+EXAMPLE:
+./rftrain -t 100 -m heart.model -d ../data/heart.csv --header --csv -l ../data/heart_labels.txt 
+
+ -p <probfile>-- outputs out-of-bag probabilities for each instance to
+ <probfile>
+ -k <int> -- number of variables to try at each split 
+
