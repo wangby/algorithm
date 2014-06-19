@@ -1,7 +1,8 @@
 /*
  * StringUtils.hpp
  *
- *  Created on: 2013骞�2鏈�7鏃� *      Author: wangbiyao
+ *  Created on: 2013年12月17日
+ *      Author: wangbiyao
  */
 
 #ifndef STRINGUTILS_HPP_
@@ -18,7 +19,7 @@ public:
 	const static std::string HAS_NOT = "miss";
 	const static std::string LESS_THAN = "lt";
 	const static std::string GREATER_THAN = "gt";
-*/	
+*/
 	static std::string trim(const std::string& text) {
 		return rtrim(ltrim(text));
 	}
@@ -104,7 +105,7 @@ public:
 				if(end > begin) {
 					items.push_back(text.substr(begin, end - begin));
 				}
-				
+
 				begin = end + sub_length;
 			}
 		}
@@ -182,7 +183,8 @@ public:
 
 		s += repeat(str, n - i);
 
-		// 闈為�褰�//	    int j = n-i;
+		// 非递归
+//	    int j = n-i;
 //	    for(int k=0;k<j;k++) {
 //	    	s += str;
 //	    }
@@ -214,7 +216,7 @@ public:
 		return lower(str1) == lower(str2);
 	}
 
-	// 鎻愬彇寮�瀛楃涓插拰缁撴潫瀛楃涓蹭箣闂寸殑瀛楃
+	// 提取开始字符串和结束字符串之间的字符
 	static void find_interval(const std::string& text, const std::string& start_str,
 			const std::string& end_str, std::vector<std::string>& items) {
 		items.clear();
@@ -262,7 +264,8 @@ public:
 		size_t src_len=0, unicode_len=0;
 		int char_num=0;
 		size_t i = 0;
-		const char *p=text.c_str(); //p鐢ㄤ簬鍚庨潰鐨勯亶鍘�		const char *addr = text.c_str();
+		const char *p=text.c_str(); //p用于后面的遍历
+		const char *addr = text.c_str();
 
 		if(equalsIgnoreCase(encoding,"ASCII")) {
 			char_num = text.length();
@@ -313,7 +316,7 @@ public:
 		return char_num;
 	}
 /*
-	// 鍙繚鐣欑鍚堟潯浠剁殑
+	// 只保留符合条件的
 	static void filter(const std::vector<std::string>& in, std::vector<std::string>& out, std::string pattern, std::string cmp) {
 		out.clear();
 		for(int i=0;i<in.size();i++) {
@@ -329,7 +332,7 @@ public:
 		}
 	}
 
-	// 鍙繚鐣欑鍚堟潯浠剁殑
+	// 只保留符合条件的
 	static void filter(const std::vector<std::string>& in, std::vector<std::string>& out,
 			std::string encoding, std::string pattern, int cmp) {
 		out.clear();
@@ -369,7 +372,7 @@ public:
 		{
 			return true;
 		}
-		// else if(word == "鐨�)
+		// else if(word == "的")
 		// {
 		// 	return true;
 		// }
@@ -383,7 +386,7 @@ public:
 
 		for (int i = 0; i < text.size(); i++) {
 			if((text[i] <= 'z' && text[i] >= 'a') || (text[i] <= 'Z' && text[i] >= 'A')) {
-				
+
 			} else {
 				return false;
 			}
@@ -399,7 +402,7 @@ public:
 
 		for (int i = 0; i < text.size(); i++) {
 			if(text[i] <= '9' && text[i] >= '0') {
-				
+
 			} else {
 				return false;
 			}
