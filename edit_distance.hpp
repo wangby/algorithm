@@ -19,7 +19,6 @@ public:
 		return std::min(std::min(a,b),c);
 	}
 
-	// zhongwen
 //	int distance(const std::string& a, const std::string& b, bool is_swap) {
 //		if(a.empty()) {
 //			return b.size() * INSERT;
