@@ -103,14 +103,13 @@ public:
 							a = i;
 							b = j;
 						}
-						++j;
 						break;
 					}
 					find[doc[i]] -= 1;
 				}
-			} else {
-				++j;
 			}
+			++j;
+			
 		}
 
 		if (shortest == 0) {
