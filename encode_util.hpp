@@ -13,6 +13,7 @@ using namespace std;
 
 class EncodeUtil {
 public:
+//	高字节从81到FE，低字节从40到FE。低字节在后，高字节在前。
 	static inline bool IsGBKCH(unsigned char ch1, unsigned char ch2) {//只能处理GBK编码问题，需要确认所有编码为GBK，如果不是，转化成GBK
 		return ((ch2 >= 64) && (ch2 <= 254) && (ch2 != 127)
 				&& ((ch1 >= 129 && ch1 <= 160) || (ch1 >= 170 && ch1 < 254)
@@ -20,7 +21,7 @@ public:
 	}
 
 	static inline bool IsASCII(unsigned char ch1) {
-		return ch1<=127;
+		return ch1 < 128;
 	}
 
 	static void SplitGBKStr2Vec(const string& str, vector<string>& ret) {
@@ -39,6 +40,29 @@ public:
 			} else {
 				++i;
 			}
+		}
+	}
+
+	static void SplitUTF8Str2Vec(const string& str, vector<string>& ret) {
+		for (int p = 0; p < str.length();) {
+			int size = 1; // 避免死循环
+			unsigned char c = str[p];
+			cout << std::hex << std::showbase << c<<endl;
+			if (c < 0x80) {
+				size = 1; //占一个字节
+			} else if (c < 0xe0) { //11xxx
+				size = 2; //占2个字节
+			} else if (c < 0xf0) { //111xxx
+				size = 3;
+			} else if (c < 0xf8) { //1111xxx
+				size = 4;
+			} else if (c < 0xfc) { // 11111xxx
+				size = 5;
+			} else if (c < 0xfe) { // 111111xx
+				size = 6;
+			}
+			ret.push_back(str.substr(p, size));
+			p += size;
 		}
 	}
 
@@ -101,6 +125,13 @@ public:
 		free (szOutstr);
 
 		return outstr;
+	}
+
+	static string ByteToHex(unsigned char x) {
+		string ret(""); // actually, default is empty
+		ret.push_back(ToHex((x>>4)&0X0F));
+		ret.push_back(ToHex(x&0x0F));
+		return ret;
 	}
 
 	static unsigned char ToHex(unsigned char x) {
