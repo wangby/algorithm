@@ -20,81 +20,82 @@ public:
 	}
 
 	// zhongwen
-	int distance(const std::string& a, const std::string& b, bool is_swap) {
-		if(a.empty()) {
-			return b.size() * INSERT;
-		}
-
-		if(b.empty()) {
-			return a.size() * INSERT;
-		}
-
-		int d = 0;
-		if(a[0] != b[0]) {
-			d = REPLACE;
-		}
-
-		int m = min3(distance(a, b.substr(1), is_swap) + INSERT,
-				distance(a.substr(1), b, is_swap) + INSERT,
-				distance(a.substr(1), b.substr(1), is_swap) + d);
-		//swap
-		if(is_swap && a[0] != b[0]) {
-			if(b.size() > 1 && a[0] == b[1]) {
-				std::string c = b;
-				std::swap(c[0], c[1]);
-				return std::min(m, SWAP + distance(a, c, is_swap));
-			}
-
-			if(a.size() > 1 && b[0] == a[1]) {
-				std::string c = a;
-				std::swap(c[0], c[1]);
-				return std::min(m, SWAP + distance(b, c, is_swap));
-			}
-		}
-
-		return m;
-	}
+//	int distance(const std::string& a, const std::string& b, bool is_swap) {
+//		if(a.empty()) {
+//			return b.size() * INSERT;
+//		}
+//
+//		if(b.empty()) {
+//			return a.size() * INSERT;
+//		}
+//
+//		int d = 0;
+//		if(a[0] != b[0]) {
+//			d = REPLACE;
+//		}
+//
+//		int m = min3(distance(a, b.substr(1), is_swap) + INSERT,
+//				distance(a.substr(1), b, is_swap) + INSERT,
+//				distance(a.substr(1), b.substr(1), is_swap) + d);
+//		//swap
+//		if(is_swap && a[0] != b[0]) {
+//			if(b.size() > 1 && a[0] == b[1]) {
+//				std::string c = b;
+//				std::swap(c[0], c[1]);
+//				return std::min(m, SWAP + distance(a, c, is_swap));
+//			}
+//
+//			if(a.size() > 1 && b[0] == a[1]) {
+//				std::string c = a;
+//				std::swap(c[0], c[1]);
+//				return std::min(m, SWAP + distance(b, c, is_swap));
+//			}
+//		}
+//
+//		return m;
+//	}
 
 	//中英文混杂 传入vector
-	int distance(const std::vector<std::string>& a, int starta,
-			     const std::vector<std::string>& b, int startb,
-			     bool is_swap) {
-//		std::cout <<" starta:" <<starta << " startb:"<<startb<<std::endl;
-		if (a.size() <= starta) {
-			int len = b.size() - startb;
-			return std::max(0, len) * INSERT;
-		}
+//	int distance(const std::vector<std::string>& a, int starta,
+//			     const std::vector<std::string>& b, int startb,
+//			     bool is_swap) {
+////		std::cout <<" starta:" <<starta << " startb:"<<startb<<std::endl;
+//		if (a.size() <= starta) {
+//			int len = b.size() - startb;
+//			return std::max(0, len) * INSERT;
+//		}
+//
+//		if (b.size() <= startb) {
+//			int len = a.size() - starta;
+//			return std::max(0, len) * INSERT;
+//		}
+//
+//		int d = 0;
+//		if (a[starta] != b[startb]) {
+//			d = REPLACE;
+//		}
+//
+//		int m = min3(distance(a, starta, b, startb + 1, is_swap) + INSERT,
+//				distance(a, starta + 1, b, startb, is_swap) + INSERT,
+//				distance(a, starta + 1, b, startb + 1, is_swap) + d);
+//
+//		if(is_swap && a[starta] != b[startb]) {
+//			if(b.size() > startb+1 && a[starta] == b[startb+1]) {
+//				std::vector<std::string> c(b);
+//				std::swap(c[startb], c[startb + 1]);
+//				return std::min(m, SWAP + distance(a, starta, c, startb, is_swap));
+//			}
+//
+//			if(a.size() > starta+1 && b[startb] == a[starta+1]) {
+//				std::vector<std::string> c(a);
+//				std::swap(c[starta], c[starta + 1]);
+//				return std::min(m, SWAP + distance(c, starta, b, startb, is_swap));
+//			}
+//		}
+//
+//		return m;
+//	}
 
-		if (b.size() <= startb) {
-			int len = a.size() - starta;
-			return std::max(0, len) * INSERT;
-		}
-
-		int d = 0;
-		if (a[starta] != b[startb]) {
-			d = REPLACE;
-		}
-
-		int m = min3(distance(a, starta, b, startb + 1, is_swap) + INSERT,
-				distance(a, starta + 1, b, startb, is_swap) + INSERT,
-				distance(a, starta + 1, b, startb + 1, is_swap) + d);
-
-		if(is_swap && a[starta] != b[startb]) {
-			if(b.size() > startb+1 && a[starta] == b[startb+1]) {
-				std::vector<std::string> c(b);
-				std::swap(c[startb], c[startb + 1]);
-				return std::min(m, SWAP + distance(a, starta, c, startb, is_swap));
-			}
-
-			if(a.size() > starta+1 && b[startb] == a[starta+1]) {
-				std::vector<std::string> c(a);
-				std::swap(c[starta], c[starta + 1]);
-				return std::min(m, SWAP + distance(c, starta, b, startb, is_swap));
-			}
-		}
-
-		return m;
-	}
 	// 非递归版，用数组保存结果 string or vector
 	template <class T>
 	int distance(const T& a, const T& b) {
@@ -128,6 +129,27 @@ public:
 		}
 
 		return d[m-1][n-1];
+	}
+
+	template<class T>
+	int distance(const T& a, const T& b, bool is_swap) {
+		int m = distance(a, b);
+		//swap
+		if(is_swap && a[0] != b[0]) {
+			if(b.size() > 1 && a[0] == b[1]) {
+				T c = b;
+				std::swap(c[0], c[1]);
+				return std::min(m, SWAP + distance(a, c));
+			}
+
+			if(a.size() > 1 && b[0] == a[1]) {
+				T c = a;
+				std::swap(c[0], c[1]);
+				return std::min(m, SWAP + distance(b, c));
+			}
+		}
+
+		return m;
 	}
 };
 
