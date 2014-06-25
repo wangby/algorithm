@@ -9,41 +9,32 @@
 #include <time.h>
 #include <tr1/unordered_set>
 #include <tr1/unordered_map>
-#include <fstream>
+
 #include <boost/filesystem.hpp>
 #include <boost/foreach.hpp>
 #include "../util/string_util.hpp"
 
 typedef std::tr1::unordered_multiset<std::string> word_set_t;
-typedef std::tr1::unordered_map<std::string, int> word_map_t;
+typedef std::tr1::unordered_map<std::string, int> word_idx_t;
+typedef std::vector<std::string> idx_word_t;
 typedef std::vector<std::vector<double> > prob_matrix_t;
 typedef std::vector<prob_matrix_t> td_matrix_t;
 
 //
 class Document {
 public:
-	Document() :
-			lines_(0) {
-	}
-
 	explicit Document(const std::string& file_path) :
 			lines_(0), file_path_(file_path) {
 	}
 
-	void SetFilePath(const std::string& file_path) {
-		file_path_ = file_path;
-	}
-
 	void Init() {
-		//
+		cout << "file:" << file_path_<<endl;
 		words_.clear();
 		lines_ = 0;
-
 		std::ifstream fin(file_path_.c_str());
 		std::string s;
-		std::vector<std::string> words;
 		while (std::getline(fin, s)) {
-			//
+			std::vector<std::string> words;
 			StringUtil::split(s, " ", words);
 			BOOST_FOREACH(std::string & word, words) {
 				words_.insert(word);
@@ -54,6 +45,10 @@ public:
 
 	const word_set_t& GetWords() {
 		return words_;
+	}
+
+	string GetFilePath() {
+		return file_path_;
 	}
 private:
 	int lines_;
@@ -66,71 +61,75 @@ class PLSA {
 public:
 	PLSA(int number_of_topics, int max_iter) :
 			number_of_topics_(number_of_topics), max_iter_(max_iter) {
-		srand((unsigned) time(0));
+		srand((unsigned) time(0)); // init once
 	}
 
 	void InitDocAndVoc(const std::string& doc_dir_path) {
 		namespace fs = boost::filesystem;
 		// init document
 		fs::directory_iterator end;
-		Document doc;
-		for (fs::directory_iterator pos(doc_dir_path); pos != end; ++pos) {
-			doc.SetFilePath(pos->path().string());
+		for (fs::directory_iterator pos(doc_dir_path); pos != end; ++pos) { // each file
+			if(fs::is_directory(*pos)) {
+				continue;
+			}
+
+			Document doc(pos->path().string());
 			doc.Init();
 			documents_.push_back(doc);
+//			documents_[documents_.size() -1].Init(); //
 		}
 
 		// init vocabulary
 		int index = 0;
 		BOOST_FOREACH(Document & doc, documents_) {
 			BOOST_FOREACH(const std::string& word, doc.GetWords()) {
-				word_map_t::const_iterator word_iter = vocabulary_.find(word);
-				if (word_iter == vocabulary_.end()) {
+				word_idx_t::const_iterator word_iter = vocabulary_.find(word);
+				if (word_iter == vocabulary_.end()) { // new word
 					vocabulary_.insert(std::make_pair(word, index++));
+					idx_word_.push_back(word);
 				}
 			}
 		}
 	}
 
 	void BuildTermDocMatrix() {
+		term_doc_matrix_.resize(documents_.size());
 		for (int d = 0; d < documents_.size(); ++d) {
-			std::vector<int> term_count(vocabulary_.size());
+			term_doc_matrix_[d].resize(vocabulary_.size());
 			BOOST_FOREACH(const std::string & word, documents_[d].GetWords()) {
-				word_map_t::const_iterator word_iter = vocabulary_.find(word);
+				word_idx_t::const_iterator word_iter = vocabulary_.find(word);
 				if (word_iter == vocabulary_.end()) {
 					continue;
 				}
 				int w_index = word_iter->second;
-				++term_count[w_index];
+				++term_doc_matrix_[d][w_index];
 			}
-			term_doc_matrix_.push_back(term_count);
 		}
 	}
 
 	void CreateCounterArrays() {
+		document_topic_prob_.resize(documents_.size()); // size = d * z
+		topic_prob_.resize(documents_.size());
 		for (int d = 0; d < documents_.size(); ++d) {
-			std::vector<double> doc_topic(number_of_topics_);
+			document_topic_prob_[d].resize(number_of_topics_);
 			for (int z = 0; z < number_of_topics_; ++z) { // random init
-				doc_topic[z] = GenRandomNum();
+				document_topic_prob_[d][z] = GenRandomNum();
 			}
-			Normalize(doc_topic);
-			document_topic_prob_.push_back(doc_topic);
+			Normalize(document_topic_prob_[d]);
 
-			prob_matrix_t voc(vocabulary_.size());
-			std::vector<double> topic(number_of_topics_);
+			topic_prob_[d].resize(vocabulary_.size()); // size = d * w * z
 			for (int w = 0; w < vocabulary_.size(); ++w) {
-				voc.push_back(topic);
+				topic_prob_[d][w].resize(number_of_topics_);
 			}
-			topic_prob_.push_back(voc);
 		}
 
+		topic_word_prob_.resize(number_of_topics_); // size = z * w
 		for (int z = 0; z < number_of_topics_; ++z) {
-			std::vector<double> topic_word(vocabulary_.size());
+			topic_word_prob_[z].resize(vocabulary_.size());
 			for (int w = 0; w < vocabulary_.size(); ++w) { // random init
-				topic_word[w] = GenRandomNum();
+				topic_word_prob_[z][w] = GenRandomNum();
 			}
-			Normalize(topic_word);
-			topic_word_prob_.push_back(topic_word);
+			Normalize(topic_word_prob_[z]);
 		}
 	}
 
@@ -154,16 +153,14 @@ public:
 	}
 
 	void EM() {
-		std::vector<double> prob(number_of_topics_);
 		for (int i = 0; i < max_iter_; ++i) {
 			// E STEP
 			for (int d = 0; d < documents_.size(); ++d) {
 				for (int w = 0; w < vocabulary_.size(); ++w) {
 					for (int z = 0; z < number_of_topics_; ++z) {
-						prob[z] = document_topic_prob_[d][z] * topic_word_prob_[z][w];
+						topic_prob_[d][w][z] = document_topic_prob_[d][z] * topic_word_prob_[z][w];
 					}
-					Normalize(prob);
-					topic_prob_[d][w] = prob;
+					Normalize(topic_prob_[d][w]);
 				}
 			}
 
@@ -212,8 +209,60 @@ public:
 		return topic_word_prob_;
 	}
 
-	void PrintProb(int max_len) {
+	void PrintProb(int max_len, std::ostream& ost=std::cout) {
+		ost << "p(z|d):"<<endl;
+		for (int i = 0; i < document_topic_prob_.size(); ++i) {
+			ost<< documents_[i].GetFilePath()<<" ";
+			for (int j = 0; j < document_topic_prob_[i].size(); ++j) {
+				double prob = document_topic_prob_[i][j];
+				ost << std::setprecision(2) << std::fixed << prob << " ";
+			}
+			ost << std::endl;
+		}
+		ost << "--------------"<< std::endl;
+		ost << "words:" << idx_word_.size() << std::endl;
+//		for(int i=0; i<idx_word_.size(); ++i) {
+//			ost << idx_word_[i] << " ";
+//		}
+//		ost << std::endl;
 
+		ost << "p(w|z):"<<endl;
+
+		for (int i = 0; i < topic_word_prob_.size(); ++i) {
+			for (int j = 0; j < topic_word_prob_[i].size(); ++j) {
+				double prob = topic_word_prob_[i][j];
+				if (prob >= 0.01) {
+					ost << idx_word_[j] << ":" << std::setprecision(2) << std::fixed << prob << " ";
+				}
+			}
+			ost << std::endl;
+		}
+
+		ost << "p(z|w):"<<endl;
+		for (int i = 0; i < word_topic_prob_.size(); ++i) {
+			for (int j = 0; j < word_topic_prob_[i].size(); ++j) {
+				double prob = word_topic_prob_[i][j];
+				if (prob >= 0.01) {
+					ost << idx_word_[i] << " topic"<<j<<":" << std::setprecision(2) << std::fixed << prob << " ";
+				}
+			}
+			ost << std::endl;
+		}
+	}
+
+	void CalcWordTopicProb() { //  p(z|w)
+		word_topic_prob_.resize(vocabulary_.size());
+		for (int w = 0; w < word_topic_prob_.size(); ++w) {
+			word_topic_prob_[w].resize(number_of_topics_);
+			for (int z = 0; z < number_of_topics_; ++z) {
+				word_topic_prob_[w][z] = 0.0;
+				for (int d = 0; d < topic_prob_.size(); ++d) {
+					word_topic_prob_[w][z] += topic_prob_[d][w][z];
+				}
+			}
+
+			Normalize(word_topic_prob_[w]);
+		}
 	}
 
 	void Run(const std::string& doc_dir_path) {
@@ -221,18 +270,24 @@ public:
 		BuildTermDocMatrix();
 		CreateCounterArrays();
 		EM();
+		CalcWordTopicProb();
 	}
 private:
 	int number_of_topics_;
 	int max_iter_;
 	std::vector<Document> documents_;
-	word_map_t vocabulary_;
-	std::vector<std::vector<int> > term_doc_matrix_;
+	word_idx_t vocabulary_;
+	idx_word_t idx_word_;
+	std::vector<std::vector<int> > term_doc_matrix_; // term count in a doc
 
-	prob_matrix_t document_topic_prob_; // p(z | d)
-	prob_matrix_t topic_word_prob_; // p(w | z)
+	prob_matrix_t document_topic_prob_; // p(z | d) d*z
+	prob_matrix_t topic_word_prob_; // p(w | z) z*w
 
-	td_matrix_t topic_prob_; // p(z | d, w)
+	td_matrix_t topic_prob_; // p(z | d, w) d*z*w
+
+
+	prob_matrix_t word_topic_prob_; // p(z | w) w*z = sum(p(z|di,w),di)
+	// 可计算 p(z|w)
 };
 
 #endif
