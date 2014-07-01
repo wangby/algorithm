@@ -40,6 +40,9 @@ public:
 	}
 
 	static std::string rtrim(const std::string& text) {
+		if(text.empty()) {
+			return text;
+		}
 		return text.substr(0, text.find_last_not_of(" \t\n\r") + 1);
 //		string::iterator i;
 //		for (i = str.end() - 1; ;i--) {
