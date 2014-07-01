@@ -62,6 +62,9 @@ public:
 	}
 
 	static std::string rtrim(const std::string& text, const std::string& trim) {
+		if(text.empty()) {
+			return text;
+		}
 		return text.substr(0, text.find_last_not_of(trim) + 1);
 	}
 
